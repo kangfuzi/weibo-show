@@ -30,9 +30,8 @@ def web_log(handler):
         else:
             log_method = access_log.error
 
-        refer = handler.request.headers.get('Referer', '')
         request_time = 1000.0 * handler.request.request_time()
-        log_method("%d ReferBala: %s %s %.2fms", handler.get_status(), refer, request_time)
+
         current_uid = 0
         log_method("ACCESS: %d\t%s\t%s\t%s\t%s\t%.2fms", handler.get_status(), handler.request.method,
                    handler.request.uri, handler.get_current_ip(), current_uid, request_time)
